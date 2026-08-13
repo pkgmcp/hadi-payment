@@ -1,0 +1,38 @@
+<?php
+
+declare(strict_types=1);
+
+namespace SimpleSoftwareIO\QrCode\Facades;
+
+/**
+ * @mixin \SimpleSoftwareIO\QrCode\Generator
+ */
+class QrCode
+{
+    /**
+     * @param array<string, mixed> $arguments
+     */
+    public static function __callStatic(string $method, array $arguments): mixed
+    {
+        return null;
+    }
+}
+
+namespace SimpleSoftwareIO\QrCode;
+
+/**
+ * QR code generator facade target.
+ */
+class Generator
+{
+    public function format(string $format): static {}
+    public function size(int $size): static {}
+    public function errorCorrection(string $errorCorrection): static {}
+    public function margin(int $margin): static {}
+    public function merge(string $file, float $percentage = 0.2, bool $absolute = false): static {}
+    public function style(string $style): static {}
+    public function color(int $r, int $g, int $b, ?float $a = null): static {}
+    public function backgroundColor(int $r, int $g, int $b, ?float $a = null): static {}
+    public function encoding(string $encoding): static {}
+    public function generate(string $data): string {}
+}

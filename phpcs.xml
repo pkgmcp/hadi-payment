@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<ruleset name="Hadi Payment">
+    <description>PSR-12 ruleset for the hadi-payment package.</description>
+
+    <file>src</file>
+    <file>config</file>
+    <file>database</file>
+    <file>routes</file>
+    <file>tests</file>
+
+    <rule ref="PSR12"/>
+
+    <!-- Test methods use snake_case (PHPUnit convention), which conflicts with PSR-1's camel caps rule. -->
+    <rule ref="PSR1.Methods.CamelCapsMethodName">
+        <exclude-pattern>tests/</exclude-pattern>
+    </rule>
+
+    <!-- The ported gateway implementations and the generated 900+ gateway
+         catalog contain long informational lines; treat the 120-char
+         guideline as a warning only. -->
+    <rule ref="Generic.Files.LineLength">
+        <exclude-pattern>src/Gateways/</exclude-pattern>
+        <exclude-pattern>src/Data/</exclude-pattern>
+    </rule>
+</ruleset>
