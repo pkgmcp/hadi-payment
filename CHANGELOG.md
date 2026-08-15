@@ -12,7 +12,7 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `CountryCatalog` covering all 195 countries with a curated per-country
   "top" list of 4-5 gateways spanning mobile money, card, bank transfer and
   virtual card rails.
-- Generated gateway catalog (`src/Data/gateways_by_country.php`) with 1982+
+- Generated gateway catalog (`src/Data/gateways_by_country.php`) with 1983+
   unique gateway keys and 27,300+ country entries via the
   `scripts/catalog/` generator (master gateway database + country pool +
   concrete-driver mapping).
@@ -22,7 +22,7 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   models, migrations, events, jobs, middleware, controllers, Blade views,
   notifications, reports (JSON/CSV/Excel/PDF), QR codes, invoices, AI-agent
   analysis, and an admin panel.
-- Complete test suite: PHPUnit 175 tests / 4667 assertions, PHPStan level 5
+- Complete test suite: PHPUnit 180 tests / 4682 assertions, PHPStan level 5
   zero errors, PHPCS PSR-12 zero errors, `php -l` clean, `composer validate`
   valid.
 
@@ -65,6 +65,16 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   `PaymentCompleted`, `PaymentFailed` and `PaymentRefunded` from
   `PaymentGatewayService`, flowing into `PaymentEventListener` and
   `PaymentNotification`; the sync flow stays stateless when disabled.
+- New `BanglaQrGateway` for the Bangladesh Bank interoperable QR payment
+  scheme: QR-specific `initialize` returns a scannable merchant QR payload
+  (`qrContent`/`qrImage`/`expiresAt`) while sharing the Bangladesh
+  verify/refund flow; registered in `GatewayFactory`, `config/hadi-payment.php`
+  (`banglaqr` block, `BANGLAQR_*` env keys), and the catalog generator
+  (`scripts/catalog/drivers.php`, `master_gateways.php`,
+  `country_gateways.php`) so the Bangladesh top list resolves to the concrete
+  driver (+1 suite, +5 tests).
+- Add `README.md` with the project tagline and quick-start/usage/event/report
+  documentation.
 
 ### Dedication
 

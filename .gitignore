@@ -48,8 +48,7 @@
 **/*.tsbuild*
 
 # Python
-**/__pycache__/
-*.py[cod]
+**/__pycache__/*.py[cod]
 *$py.class
 **/.Python
 **/build/
@@ -174,3 +173,11 @@
 *.lz
 *.lzma
 *.iso
+
+# PHP / Composer
+/vendor/
+composer.lock
+.phpunit.cache/
+.phpunit.result.cache
+/build/
+/coverage/

@@ -163,6 +163,7 @@ class CountryCatalogTest extends TestCase
 
         $expected = [
             'bkash' => \Hadi\Payment\Gateways\BkashGateway::class,
+            'banglaqr' => \Hadi\Payment\Gateways\BanglaQrGateway::class,
             'stripe' => \Hadi\Payment\Gateways\StripeGateway::class,
             'paypal' => \Hadi\Payment\Gateways\PayPalGateway::class,
             'm-pesa' => \Hadi\Payment\Gateways\MpesaGateway::class,

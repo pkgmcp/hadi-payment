@@ -19,6 +19,7 @@
         "rocket",
         "upay",
         "surecash",
+        "banglaqr",
         "mcash",
         "mycash",
         "ucash",
@@ -33,7 +34,7 @@
         "india",
         "hadi"
     ],
-    "homepage": "https://github.com/hadi/hadi-payment",
+    "homepage": "https://github.com/pkgmcp/hadi-payment",
     "authors": [
         {
             "name": "Hadi Payment",

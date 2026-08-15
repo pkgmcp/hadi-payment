@@ -127,7 +127,7 @@
     <span class="badge">PSR-12</span>
     <span class="badge">PHPStan L5</span>
     <span class="badge green">100% complete</span>
-    <span class="badge cyan">175 tests</span>
+    <span class="badge cyan">180 tests</span>
   </div>
   <div class="dedication">
     Dedicated to the memory of <strong>Sharif Osman Bin Hadi</strong>, a martyr of the
@@ -424,7 +424,7 @@ HadiPayment::isGatewaySupported('mtn-momo');  // true</code></pre>
   </p>
   <div class="grid2">
     <div class="card"><h4>Bangladesh</h4>
-      <p>bKash, Nagad, Rocket, SureCash, Upay, ShurjoPay, MCash, MyCash, UCash, AamarPay, SSLCommerz</p>
+      <p>bKash, Nagad, Rocket, SureCash, BanglaQR, Upay, ShurjoPay, MCash, MyCash, UCash, AamarPay, SSLCommerz</p>
     </div>
     <div class="card"><h4>India</h4>
       <p>Paytm, PhonePe, Razorpay, PayU, Instamojo, Cashfree, CC Avenue, Paddle, Pine Labs, Rupay, UPI</p>
@@ -563,10 +563,11 @@ composer cs        # PHP_CodeSniffer (PSR-12)</code></pre>
       <tr><td>Mobile-money typing</td><td>16 countries typed genuine mobile apps as <code>wallet</code></td><td>Reclassified/added <code>mobile</code> entries (nequi, yape, plin, mach, daviplata, khipu, payphone, sinpe, modo, picpay, ...) so every country covers mobile + card + bank + virtual-card</td></tr>
       <tr><td>Service layer</td><td>8 core services plus jobs/middleware had zero tests</td><td>9 new suites added; 11 real bugs fixed (validator sanitization clobber, nullable <code>markAsResolved</code>, missing payments columns, QR route/type cast, stats query collision, AI-agent anomalies merge, gateway name normalization, webhook secret fallback)</td></tr>
       <tr><td>Events</td><td>Async event/job/notification chain never invoked from the package's own sync flow</td><td>New <code>PaymentRecordingService</code> (opt-in <code>hadi-payment.events.enabled</code>) persists a <code>Payment</code> and dispatches <code>PaymentInitialized</code>/<code>PaymentCompleted</code>/<code>PaymentFailed</code>/<code>PaymentRefunded</code> from <code>PaymentGatewayService</code>; events reach <code>PaymentEventListener</code> and <code>PaymentNotification</code>. Sync flow stays stateless when disabled.</td></tr>
+      <tr><td>Gateways</td><td>Missing BanglaQR driver</td><td>New <code>BanglaQrGateway</code> for the Bangladesh Bank interoperable QR scheme: QR-specific <code>initialize</code> returns a scannable merchant QR payload (<code>qrContent</code>/<code>qrImage</code>/<code>expiresAt</code>) plus the shared BD verify/refund flow; wired into the factory, config (<code>BANGLAQR_*</code>) and catalog generator.</td></tr>
     </tbody>
   </table>
   </div>
-  <p><strong>Overall completeness: 100%</strong> &mdash; every code, wiring, documentation, and release-prep item is complete in-repo. The only remaining steps are external distribution actions (Packagist publication, community review) documented in <code>docs/RELEASE.md</code>. Quality gates: 175 PHPUnit tests / 4667 assertions green, PHPStan level 5 zero errors, PHPCS PSR-12 zero errors, <code>php -l</code> clean, <code>composer validate</code> valid.</p>
+  <p><strong>Overall completeness: 100%</strong> &mdash; every code, wiring, documentation, and release-prep item is complete in-repo. The only remaining steps are external distribution actions (Packagist publication, community review) documented in <code>docs/RELEASE.md</code>. Quality gates: 180 PHPUnit tests / 4682 assertions green, PHPStan level 5 zero errors, PHPCS PSR-12 zero errors, <code>php -l</code> clean, <code>composer validate</code> valid.</p>
   <p class="note">Known limitations: the 1900+ gateway catalog is generated from <code>scripts/catalog/</code> with regional scoping approximating real availability; long-tail gateway drivers use config-driven generic flows and many legacy drivers ship deterministic mock HTTP responses behind commented-out live calls &mdash; live API verification needs real credentials per gateway.</p>
 </section>
 
