@@ -8,6 +8,7 @@ maintainer account on Packagist.
 
 - [x] `CHANGELOG.md` written (Keep a Changelog format, version `1.0.0`).
 - [x] `composer.json` valid (`composer validate`), license MIT, `hadi/hadi-payment`.
+- [x] `LICENSE` file present (MIT, dedicated to Sharif Osman Bin Hadi).
 - [x] Quality gates green: PHPUnit 180 tests / 4682 assertions, PHPStan level 5
   zero errors, PHPCS PSR-12 zero errors, `php -l` clean.
 - [x] Docs updated: `docs/PRD.md` (completeness audit, score) and `docs/html/index.html`.
